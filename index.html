@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Woven By Mithra - Handcrafted Crochet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #f6f3ee;
+            --cream-light: #fcf9f4;
+            --yellow-accent: #fef9c3;
+            --dark-text: #1c1c19;
+            --brown-text: #685d47;
+            --border-color: #e5e2dd;
+            --shadow: 0px 10px 30px -5px rgba(110, 99, 77, 0.08);
+            --font-primary: 'Josefin Sans', sans-serif;
+        }
+
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--dark-text);
+            background-color: #faf8f5;
+            line-height: 1.6;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background-color: #f9f7f3;
+            padding: 80px 48px 128px;
+            position: relative;
+            overflow: hidden;
+            min-height: 870px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://www.figma.com/api/mcp/asset/d4adeb15-6275-4b2f-9dae-15d3be9dc9cb');
+            opacity: 0.05;
+            background-size: 512px 512px;
+            background-position: top left;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            max-width: 1280px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 31.4px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--dark-text);
+            letter-spacing: -0.96px;
+            max-width: 576px;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--brown-text);
+            line-height: 1.6;
+            max-width: 573px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            padding-top: 16.6px;
+        }
+
+        .btn {
+            padding: 16.5px 32px 17.5px;
+            border-radius: 9999px;
+            font-family: var(--font-primary);
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--yellow-accent);
+            color: var(--dark-text);
+        }
+
+        .btn-primary:hover {
+            background-color: #fdf6a8;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(254, 249, 195, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--dark-text);
+            border: 1px solid #cac7b8;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--dark-text);
+            background-color: rgba(28, 28, 25, 0.02);
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image {
+            position: relative;
+            width: 100%;
+            max-width: 576px;
+            aspect-ratio: 4/5;
+            border-radius: 48px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background-color: #f5f5f4;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: rgba(255, 255, 255, 0.2);
+            mix-blend-mode: saturation;
+            z-index: 2;
+        }
+
+        .featured-badge {
+            position: absolute;
+            bottom: -24px;
+            left: -24px;
+            background-color: var(--cream-light);
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            max-width: 200px;
+            z-index: 10;
+        }
+
+        .featured-label {
+            font-size: 12px;
+            color: #636036;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .featured-title {
+            font-size: 18px;
+            color: var(--dark-text);
+            line-height: 1.25;
+            font-weight: 400;
+        }
+
+        /* HIGHLIGHTS BAR */
+        .highlights {
+            background: linear-gradient(to right, #f6f3ee 0%, rgba(240, 225, 197, 0.1) 50%, #f6f3ee 100%);
+            border-top: 1px solid rgba(229, 226, 221, 0.3);
+            border-bottom: 1px solid rgba(229, 226, 221, 0.3);
+            padding: 65px 48px;
+        }
+
+        .highlights-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 48px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .highlight-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .highlight-icon {
+            width: 26.635px;
+            height: 18.822px;
+            flex-shrink: 0;
+        }
+
+        .highlight-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .highlight-content {
+            flex: 1;
+        }
+
+        .highlight-label {
+            font-size: 12px;
+            color: var(--brown-text);
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .highlight-title {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--dark-text);
+        }
+
+        .testimonial-card {
+            grid-column: 4;
+            background-color: var(--cream-light);
+            border-left: 4px solid #636036;
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            color: #49473c;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        /* PRODUCT SHOWCASE */
+        .product-showcase {
+            padding: 128px 48px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: center;
+            margin-bottom: 64px;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            font-weight: 600;
+            color: var(--dark-text);
+            letter-spacing: -0.36px;
+        }
+
+        .section-header p {
+            font-size: 16px;
+            color: var(--brown-text);
+            max-width: 672px;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: 284px 284px;
+            gap: 32px;
+            height: 600px;
+        }
+
+        .bento-item {
+            border-radius: 32px;
+            overflow: hidden;
+            position: relative;
+            background-color: #f5f5f4;
+            box-shadow: var(--shadow);
+        }
+
+        .bento-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bento-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+            pointer-events: none;
+        }
+
+        .bento-item:nth-child(1) {
+            grid-column: 1 / span 8;
+        }
+
+        .bento-item:nth-child(2) {
+            grid-column: 9 / span 4;
+        }
+
+        .bento-item:nth-child(3) {
+            grid-column: 1 / span 4;
+            grid-row: 2;
+        }
+
+        .bento-item:nth-child(4) {
+            grid-column: 5 / span 8;
+            grid-row: 2;
+        }
+
+        .bento-label {
+            position: absolute;
+            bottom: 32px;
+            left: 32px;
+            z-index: 5;
+            color: white;
+        }
+
+        .bento-label h3 {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .bento-label p {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            opacity: 0.8;
+        }
+
+        /* FORM SECTION */
+        .form-section {
+            background: linear-gradient(135deg, rgba(240, 225, 197, 0.2) 0%, rgba(254, 249, 195, 0.1) 100%);
+            padding: 128px 48px;
+        }
+
+        .form-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            max-width: 1280px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .form-info h2 {
+            font-size: 36px;
+            font-weight: 600;
+            color: var(--dark-text);
+            letter-spacing: -0.36px;
+            margin-bottom: 24px;
+            line-height: 1.3;
+        }
+
+        .form-info p {
+            font-size: 16px;
+            color: var(--brown-text);
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+
+        .form-note {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .form-note-icon {
+            width: 19px;
+            height: 19px;
+            flex-shrink: 0;
+        }
+
+        .form-note-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #636036;
+        }
+
+        .form-wrapper {
+            background-color: var(--cream-light);
+            border-radius: 40px;
+            padding: 48px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            color: var(--brown-text);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 20px 16px;
+            background-color: #f6f3ee;
+            border: none;
+            border-radius: 12px;
+            font-family: var(--font-primary);
+            font-size: 16px;
+            color: var(--dark-text);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #6b7280;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            background-color: #efe9e0;
+            box-shadow: inset 0 0 0 1px #d4cec5;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: var(--yellow-accent);
+            color: var(--dark-text);
+        }
+
+        .btn-submit:hover {
+            background-color: #fdf6a8;
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .form-success {
+            display: none;
+            padding: 16px;
+            background-color: #d4edda;
+            color: #155724;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+
+        .form-success.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* TESTIMONIALS SECTION */
+        .testimonials {
+            padding: 128px 48px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 64px;
+        }
+
+        .testimonial-item {
+            background-color: var(--cream-light);
+            padding: 40px;
+            border-radius: 32px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .testimonial-icon {
+            width: 24.288px;
+            height: 16.961px;
+            margin: 0 auto 24px;
+        }
+
+        .testimonial-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .testimonial-text {
+            color: #49473c;
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 24px;
+            flex: 1;
+        }
+
+        .testimonial-author {
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--dark-text);
+            margin-bottom: 8px;
+        }
+
+        .testimonial-location {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--brown-text);
+        }
+
+        .testimonial-item:nth-child(2) {
+            border-top: 4px solid var(--yellow-accent);
+        }
+
+        /* FAQ SECTION */
+        .faq-section {
+            padding: 128px 48px;
+            max-width: 896px;
+            margin: 0 auto;
+        }
+
+        .faq-container {
+            margin-top: 64px;
+        }
+
+        .faq-item {
+            background-color: var(--cream-light);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .faq-header {
+            padding: 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-header:hover {
+            background-color: #f0ede8;
+        }
+
+        .faq-title {
+            font-size: 18px;
+            color: var(--dark-text);
+            font-weight: 400;
+        }
+
+        .faq-toggle {
+            width: 11.308px;
+            height: 6.708px;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-toggle img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-content {
+            max-height: 200px;
+            padding: 0 24px 24px;
+        }
+
+        .faq-text {
+            color: var(--brown-text);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            background: var(--yellow-accent);
+            padding: 127px 96px 96px;
+            border-radius: 48px;
+            margin: 128px auto;
+            max-width: 1280px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://www.figma.com/api/mcp/asset/d4adeb15-6275-4b2f-9dae-15d3be9dc9cb');
+            opacity: 0.1;
+            background-size: 512px 512px;
+            background-position: top left;
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-size: 48px;
+            font-weight: 600;
+            color: var(--dark-text);
+            letter-spacing: -0.96px;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .cta-section p {
+            font-size: 16px;
+            color: #757347;
+            max-width: 672px;
+            margin: 0 auto 24px;
+            line-height: 1.5;
+        }
+
+        .btn-dark {
+            background-color: var(--dark-text);
+            color: var(--cream-light);
+            margin-top: 24px;
+        }
+
+        .btn-dark:hover {
+            background-color: #3a3935;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .highlights-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonial-card {
+                grid-column: 1 / -1;
+            }
+
+            .form-container {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .bento-grid {
+                grid-template-columns: repeat(6, 1fr);
+            }
+
+            .bento-item:nth-child(1) {
+                grid-column: 1 / span 6;
+            }
+
+            .bento-item:nth-child(2) {
+                grid-column: 1 / span 6;
+            }
+
+            .bento-item:nth-child(3) {
+                grid-column: 1 / span 3;
+                grid-row: 2;
+            }
+
+            .bento-item:nth-child(4) {
+                grid-column: 4 / span 3;
+                grid-row: 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 40px 24px 80px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .highlights-container {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-section {
+                padding: 64px 24px;
+            }
+
+            .cta-section {
+                margin: 64px 24px;
+                padding: 64px 24px;
+            }
+
+            .product-showcase {
+                padding: 64px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Handcrafted Crochet That Feels Like Home</h1>
+                <p class="hero-subtitle">Every stitch tells a story. Discover beautifully handmade crochet pieces designed with love and care.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary">EXPLORE COLLECTION</button>
+                    <button class="btn btn-secondary">ENQUIRE NOW</button>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <div class="hero-image">
+                    <img src="https://www.figma.com/api/mcp/asset/c5b0aca1-85f3-471b-8087-7aebe4f612e1" alt="Crochet collection showcase">
+                </div>
+                <div class="featured-badge">
+                    <span class="featured-label">FEATURED</span>
+                    <div class="featured-title">The Heirloom Collection</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HIGHLIGHTS BAR -->
+    <section class="highlights">
+        <div class="highlights-container">
+            <div class="highlight-item">
+                <div class="highlight-icon">
+                    <img src="https://www.figma.com/api/mcp/asset/161328d3-801f-41d2-a6d3-9c1694873a7b" alt="Global reach icon">
+                </div>
+                <div class="highlight-content">
+                    <span class="highlight-label">GLOBAL REACH</span>
+                    <div class="highlight-title">100+ Creations Delivered</div>
+                </div>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-icon">
+                    <img src="https://www.figma.com/api/mcp/asset/82401e38-1ca0-4bbb-ae06-6049c9ec0a77" alt="Loved nationwide icon">
+                </div>
+                <div class="highlight-content">
+                    <span class="highlight-label">LOVED NATIONWIDE</span>
+                    <div class="highlight-title">Across India</div>
+                </div>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-icon">
+                    <img src="https://www.figma.com/api/mcp/asset/db4d4727-d738-44ce-8404-1b3a05540792" alt="Unique designs icon">
+                </div>
+                <div class="highlight-content">
+                    <span class="highlight-label">UNIQUE</span>
+                    <div class="highlight-title">Custom Designs Crafted</div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p>"Absolutely stunning work – you can feel the love in every stitch."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCT SHOWCASE -->
+    <section class="product-showcase">
+        <div class="section-header">
+            <h2>Our Handmade Creations</h2>
+            <p>Each piece is carefully handcrafted to bring warmth and uniqueness into your life.</p>
+        </div>
+        <div class="bento-grid">
+            <div class="bento-item">
+                <img src="https://www.figma.com/api/mcp/asset/16c87b37-28a1-4a9f-a60d-34268885f6e1" alt="Crochet accessories">
+                <div class="bento-label">
+                    <h3>Crochet Accessories</h3>
+                    <p>Discover Elegance</p>
+                </div>
+            </div>
+            <div class="bento-item">
+                <img src="https://www.figma.com/api/mcp/asset/c826874f-0765-4995-96ed-b3ef377bef2a" alt="Home décor">
+                <div class="bento-label">
+                    <h3>Home Décor</h3>
+                </div>
+            </div>
+            <div class="bento-item">
+                <img src="https://www.figma.com/api/mcp/asset/ed453d03-b8a9-4858-b841-b6d269324a2e" alt="Baby essentials">
+                <div class="bento-label">
+                    <h3>Baby Essentials</h3>
+                </div>
+            </div>
+            <div class="bento-item">
+                <img src="https://www.figma.com/api/mcp/asset/11877b7d-da1e-4a2f-911e-5c5b3c98fdc9" alt="Custom gifts">
+                <div class="bento-label">
+                    <h3>Custom Gifts</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORM SECTION -->
+    <section class="form-section">
+        <div class="form-container">
+            <div class="form-info">
+                <h2>Get Your Custom Crochet Piece</h2>
+                <p>Have something special in mind? Let's create it together. From personalized color palettes to unique patterns, your imagination is the limit.</p>
+                <div class="form-note">
+                    <div class="form-note-icon">
+                        <img src="https://www.figma.com/api/mcp/asset/8070e360-28b8-4977-9b60-8a9454bd4b7b" alt="Info icon">
+                    </div>
+                    <div class="form-note-text">We'll get back to you within 24 hours.</div>
+                </div>
+            </div>
+
+            <div class="form-wrapper">
+                <form id="leadForm">
+                    <div class="form-success" id="successMessage">
+                        ✓ Thank you! Your enquiry has been received. We'll contact you within 24 hours.
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fullName">NAME</label>
+                        <input type="text" id="fullName" name="fullName" placeholder="Your full name" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">PHONE</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+91 000 000 0000" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">EMAIL</label>
+                            <input type="email" id="email" name="email" placeholder="hello@domain.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="linkedin">LINKEDIN URL (OPTIONAL)</label>
+                        <input type="url" id="linkedin" name="linkedin" placeholder="linkedin.com/in/username">
+                    </div>
+
+                    <button type="submit" class="btn btn-submit">REQUEST A CUSTOM ORDER</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials">
+        <div class="section-header">
+            <h2>What Our Customers Say</h2>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-item">
+                <div class="testimonial-icon">
+                    <img src="https://www.figma.com/api/mcp/asset/471aadb4-36c7-4195-a209-9756cf526423" alt="Quote icon">
+                </div>
+                <div class="testimonial-text">"The level of detail is extraordinary. It's not just a blanket; it's a work of art that my family will cherish for generations."</div>
+                <div class="testimonial-author">Aditi Sharma</div>
+                <div class="testimonial-location">MUMBAI, INDIA</div>
+            </div>
+            <div class="testimonial-item">
+                <div class="testimonial-icon">
+                    <img src="https://www.figma.com/api/mcp/asset/471aadb4-36c7-4195-a209-9756cf526423" alt="Quote icon">
+                </div>
+                <div class="testimonial-text">"I ordered a custom gift for a friend, and she was moved to tears. Mithra's work has a soul that factory-made things just lack."</div>
+                <div class="testimonial-author">Rohan Mehta</div>
+                <div class="testimonial-location">BANGALORE, INDIA</div>
+            </div>
+            <div class="testimonial-item">
+                <div class="testimonial-icon">
+                    <img src="https://www.figma.com/api/mcp/asset/471aadb4-36c7-4195-a209-9756cf526423" alt="Quote icon">
+                </div>
+                <div class="testimonial-text">"Incredibly soft yarn and beautiful patterns. The delivery was seamless and the packaging was so eco-friendly and cute!"</div>
+                <div class="testimonial-author">Priya K.</div>
+                <div class="testimonial-location">DELHI, INDIA</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section">
+        <div class="section-header">
+            <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item active">
+                <div class="faq-header">
+                    <div class="faq-title">How long does a custom order take?</div>
+                    <div class="faq-toggle">
+                        <img src="https://www.figma.com/api/mcp/asset/c1dd86cf-970b-4d3f-b466-232eb63ab8ab" alt="Toggle">
+                    </div>
+                </div>
+                <div class="faq-content">
+                    <div class="faq-text">Small items usually take 5-7 business days, while larger projects like blankets can take 3-4 weeks depending on the complexity of the pattern.</div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-header">
+                    <div class="faq-title">What materials do you use?</div>
+                    <div class="faq-toggle">
+                        <img src="https://www.figma.com/api/mcp/asset/4ec4f712-736b-425a-a34e-239aea7a5728" alt="Toggle">
+                    </div>
+                </div>
+                <div class="faq-content">
+                    <div class="faq-text">We use premium quality, ethically sourced yarns that are soft, durable, and perfect for all ages.</div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-header">
+                    <div class="faq-title">Do you ship internationally?</div>
+                    <div class="faq-toggle">
+                        <img src="https://www.figma.com/api/mcp/asset/4ec4f712-736b-425a-a34e-239aea7a5728" alt="Toggle">
+                    </div>
+                </div>
+                <div class="faq-content">
+                    <div class="faq-text">Yes! We offer international shipping to most countries with tracking and insurance options.</div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-header">
+                    <div class="faq-title">How do I wash my crochet pieces?</div>
+                    <div class="faq-toggle">
+                        <img src="https://www.figma.com/api/mcp/asset/4ec4f712-736b-425a-a34e-239aea7a5728" alt="Toggle">
+                    </div>
+                </div>
+                <div class="faq-content">
+                    <div class="faq-text">Hand wash in cold water with mild soap and air dry. Detailed care instructions come with every purchase.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Let's Create Something Beautiful Together</h2>
+            <p>Your perfect crochet piece is just one step away. Whether it's a gift for a loved one or a treat for yourself.</p>
+            <button class="btn btn-dark">ENQUIRE NOW</button>
+        </div>
+    </section>
+
+    <script>
+        // Form submission to Google Sheets
+        const SHEET_ID = '1rPOTq8vlGMa630q_lxVHdxL_gZwvMgjok4-Ti9nESuY';
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwPG5WlubKQ79_1W_3OdGMv7QKgGaKCGemRGFb2OEcPxHjxx7-hY2l0OGMVTOeZ_6fTXw/exec';
+
+        // Form submission to Google Sheets
+        async function submitToGoogleSheets(formData) {
+            try {
+                // Using Google Apps Script deployment URL
+                const scriptUrl = 'https://script.google.com/macros/s/AKfycbwPG5WlubKQ79_1W_3OdGMv7QKgGaKCGemRGFb2OEcPxHjxx7-hY2l0OGMVTOeZ_6fTXw/exec';
+                
+                const response = await fetch(scriptUrl, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams(formData).toString()
+                });
+
+                return true;
+            } catch (error) {
+                console.error('Error:', error);
+                return false;
+            }
+        }
+
+        // Alternative fallback: Using Google Sheets API with fetch
+        async function submitFormData(formData) {
+            try {
+                const timestamp = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+                
+                // Prepare data for Google Apps Script
+                const scriptUrl = 'https://script.google.com/macros/s/AKfycbwPG5WlubKQ79_1W_3OdGMv7QKgGaKCGemRGFb2OEcPxHjxx7-hY2l0OGMVTOeZ_6fTXw/exec';
+                
+                const params = new URLSearchParams();
+                params.append('fullName', formData.fullName);
+                params.append('phone', formData.phone);
+                params.append('email', formData.email);
+                params.append('linkedin', formData.linkedin);
+                params.append('timestamp', timestamp);
+
+                const response = await fetch(scriptUrl, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: params
+                });
+
+                return true;
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                return false;
+            }
+        }
+
+        // Form handler
+        document.getElementById('leadForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const formData = {
+                fullName: document.getElementById('fullName').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                linkedin: document.getElementById('linkedin').value,
+                timestamp: new Date().toLocaleString()
+            };
+
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const successMsg = document.getElementById('successMessage');
+            
+            // Disable button during submission
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'SUBMITTING...';
+
+            // Submit to Google Sheets
+            const success = await submitFormData(formData);
+
+            if (success) {
+                successMsg.classList.add('show');
+                this.reset();
+                
+                setTimeout(() => {
+                    successMsg.classList.remove('show');
+                }, 5000);
+            } else {
+                alert('There was an error submitting your form. Please try again.');
+            }
+
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'REQUEST A CUSTOM ORDER';
+        });
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const faqItem = this.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+
+        // Button interactions
+        document.querySelectorAll('.btn-primary, .btn-secondary, .btn-dark').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                // Scroll to form section
+                if (this.textContent.includes('ENQUIRE')) {
+                    document.querySelector('.form-section').scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
